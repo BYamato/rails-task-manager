@@ -1,0 +1,13 @@
+<div class = "container">
+  <h1 class = "text-primary">My tasks</h1>
+  <ul>
+  <%@tasks.each do |task|%>
+  <li class = "text-decoration-none"><%= link_to task.title, task_path(task)%> //
+    <%= link_to  task_path(task), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+      <i class="fa-solid fa-trash"></i>
+    <% end %>
+  </li>
+  <% end %>
+  </ul>
+  <%= link_to " + create new task", new_path %>
+</div>
